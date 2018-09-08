@@ -38,6 +38,11 @@ describe('growUp', () => {
     pet.growUp()
     expect(pet.fitness).toEqual(7)
   })
+  it('throws an error if the pet is not alive', () => {
+    const pet = new Pet('Snoop')
+    pet.age = 36
+    expect(pet.growUp).toThrow("You murdered your pet in cold blood. Very not cool.")
+  })
 })
 
 describe('walk', () => {
@@ -52,6 +57,11 @@ describe('walk', () => {
     pet.fitness = 8
     pet.walk()
     expect(pet.fitness).toEqual(10)
+  })
+  it('throws an error if the pet is not alive', () => {
+    const pet = new Pet('IceCube')
+    pet.fitness = -6
+    expect(pet.walk).toThrow("You murdered your pet in cold blood. Very not cool.")
   })
 })
 
@@ -68,9 +78,20 @@ describe('feed', () => {
     pet.feed()
     expect(pet.hunger).toEqual(0)
   })
+  it('throws an error if the pet is not alive', () => {
+    const pet = new Pet('Lupe')
+    pet.hunger = 16
+    expect(pet.feed).toThrow("You murdered your pet in cold blood. Very not cool.")
+  })
 })
 
 describe('checkUp', () => {
+  it('tells the user their pet is dead if their pet is dead', () => {
+    const pet = new Pet('Skepta')
+    pet.age = 36
+    pet.fitness = 6
+
+  })
   it ('tells the user to take the pet for a walk if its fitness level is less than 3', () => {
     const pet = new Pet('Nas')
     pet.fitness = 2

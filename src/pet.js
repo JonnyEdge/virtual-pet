@@ -15,12 +15,18 @@ Pet.prototype = {
 }
 
 Pet.prototype.growUp = function () {
+    if (!this.isAlive) {
+        throw new Error("You murdered your pet in cold blood. Very not cool.")
+    }
     this.age += 1
     this.hunger += 5
     this.fitness -= 3 
 }
 
 Pet.prototype.walk = function () {
+    if (!this.isAlive) {
+        throw new Error("You murdered your pet in cold blood. Very not cool.")
+    }
     if ((this.fitness + 4) <= MAXIMUM_FITNESS) {
         this.fitness += 4
     } else {
@@ -29,6 +35,9 @@ Pet.prototype.walk = function () {
 }
 
 Pet.prototype.feed = function () {
+    if (!this.isAlive) {
+        throw new Error("You murdered your pet in cold blood. Very not cool.")
+    }
     if ((this.hunger) - 3 > MINIMUM_HUNGER) {
         this.hunger -= 3
     } else {
@@ -37,6 +46,9 @@ Pet.prototype.feed = function () {
 }
 
 Pet.prototype.checkUp = function () {
+    if (!this.isAlive) {
+        return "I'm sorry to be the bearer of bad news, but your pet is dead. It's dead because you killed it."
+    }
     if (((this.fitness) > 3) && ((this.hunger) < 5)) {
         return "Somehow, I'm actually alive and relatively happy. Go you."
     }
