@@ -30,4 +30,19 @@ Pet.prototype.feed = function () {
     }
 }
 
+Pet.prototype.checkUp = function () {
+    if (((this.fitness) > 3) && ((this.hunger) < 5)) {
+        return "Somehow, I'm actually alive and relatively happy. Go you."
+    }
+    if (((this.fitness) <= 3) && ((this.hunger) >= 5)) {
+        return "Feed me, then take me for a walk before I call the RSPCA, you animal cruelty fuck."
+    }
+    if ((this.fitness) <= 3) {
+        return "Take me for a walk you lazy cunt."
+    }
+    if ((this.hunger) >= 5) {
+        return "I'm starving you useless cunt."
+    }
+}
+
 module.exports = Pet
