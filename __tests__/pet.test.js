@@ -90,7 +90,8 @@ describe('checkUp', () => {
     const pet = new Pet('Skepta')
     pet.age = 36
     pet.fitness = 6
-
+    pet.hunger = 16
+    expect(pet.checkUp()).toEqual(expect.stringContaining("I'm sorry to be the bearer of bad news, but your pet is dead. It's dead because you killed it."))
   })
   it ('tells the user to take the pet for a walk if its fitness level is less than 3', () => {
     const pet = new Pet('Nas')
@@ -143,5 +144,13 @@ describe('isAlive', () => {
     pet.fitness = 0
     pet.hunger = 10
     pet.age = 30
+  })
+})
+
+describe('adoptChild', () => {
+  it ('checks to see if array is created with passed name string at the parent pet children property', () => {
+    const pet = new Pet ('A$AP')
+    pet.adoptChild('Rocky')
+    expect(pet.children).toEqual(['Rocky'])
   })
 })
