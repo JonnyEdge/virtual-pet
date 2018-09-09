@@ -148,9 +148,10 @@ describe('isAlive', () => {
 })
 
 describe('adoptChild', () => {
-  it ('checks to see if array is created with passed name string at the parent pet children property', () => {
-    const pet = new Pet ('A$AP')
-    pet.adoptChild('Rocky')
-    expect(pet.children).toEqual(['Rocky'])
+  it ('checks to see if array containing new child pet instance is created as a property of parent pet', () => {
+    const parent = new Pet ('A$AP')
+    const child = new Pet ('Rocky')
+    parent.adoptChild(child)
+    expect(parent.children).toEqual([{"age": 0, "children": [], "fitness": 10, "hunger": 0, "name": 'Rocky'}])
   })
 })

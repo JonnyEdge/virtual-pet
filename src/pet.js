@@ -15,6 +15,10 @@ Pet.prototype = {
     }
 }
 
+// Pet.prototype.haveBaby = function (child) {
+//     this.children.push(child)
+// }
+
 Pet.prototype.adoptChild = function (child) {
     this.children.push(child)
 }
