@@ -155,3 +155,11 @@ describe('adoptChild', () => {
     expect(parent.children).toEqual([{"age": 0, "children": [], "fitness": 10, "hunger": 0, "name": 'Rocky'}])
   })
 })
+
+describe('haveBaby', () => {
+  it ('checks to see if calling the haveBaby method on the parent pet instantiates a new child pet', () => {
+    const parent = new Pet ('GhostfaceKilla')
+    parent.haveBaby('OlDirtyBastard')
+    expect(parent).toEqual({"age": 0, "children": [{"age": 0, "children": [], "fitness": 10, "hunger": 0, "name": "OlDirtyBastard"}], "fitness": 10, "hunger": 0, "name": "GhostfaceKilla"})
+  })
+})

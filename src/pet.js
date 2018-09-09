@@ -15,9 +15,9 @@ Pet.prototype = {
     }
 }
 
-// Pet.prototype.haveBaby = function (child) {
-//     this.children.push(child)
-// }
+Pet.prototype.haveBaby = function (child) {
+    this.children.push(new Pet (child))
+}
 
 Pet.prototype.adoptChild = function (child) {
     this.children.push(child)
